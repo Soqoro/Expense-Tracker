@@ -1,6 +1,6 @@
 //React defines lowercase letter as built-in html elements, thats why our custom elements must be starting with capital letter
 import Expenses from "./components/Expenses/Expenses";
-import NewExpense from "./components/Expenses/NewExpense";
+import NewExpense from "./components/NewExpenses/NewExpense";
 import { useState } from "react";
 
 const DUMMY_EXPENSES = [
@@ -27,11 +27,11 @@ const DUMMY_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  const addExpenseHandler = expense =>{
-    setExpenses((prevExpenses) =>{
-      return [expense, ...prevExpenses];
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses]; //The clean way of updating our state when it is based on a snapshot of previous state ... is called a spread operator an is used to split the elements of an array into its elements
     });
-  }
+  };
 
   return (
     <div>
